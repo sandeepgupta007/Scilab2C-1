@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 function [IfCondArg,NIfCondArg,Op,NOp] = AST_ParseIfExprStruct(FileInfo,SharedInfo,ASTIfExpType)
+=======
+function [IfCondArg,NIfCondArg] = AST_ParseIfExprStruct(FileInfo,SharedInfo,ASTIfExpType)
+>>>>>>> 9e5793a7b05b23e6044a6d7a9ddd5db39ba375f0
 // function [IfCondArg,NIfCondArg] = AST_ParseIfExprStruct(FileInfo,SharedInfo,ASTIfExpType)
 // -----------------------------------------------------------------
 //#RNU_RES_B
@@ -65,6 +69,7 @@ global STACKDEDUG
 // ------------------------------------
 // --- Read if condition variables. ---
 // ------------------------------------
+<<<<<<< HEAD
 //OutArgOld=[];
 //OutArgNew=[];
 
@@ -79,12 +84,19 @@ global STACKDEDUG
 flagendpop = 0;
 IfExprField = AST_PopASTStack();
 PrintStringInfo(' '+IfExprField+' '+ASTIfExpType,ReportFileName,'file','y');
+=======
+flagendpop = 0;
+IfExprField = AST_PopASTStack();
+>>>>>>> 9e5793a7b05b23e6044a6d7a9ddd5db39ba375f0
 if (ASTIfExpType=='if')
    if (IfExprField=='Expression:')
       flagendpop = 1;
       // Pop Again the If tag from the AST.
       IfExprField = AST_PopASTStack();
+<<<<<<< HEAD
       PrintStringInfo(' '+IfExprField,ReportFileName,'file','y');
+=======
+>>>>>>> 9e5793a7b05b23e6044a6d7a9ddd5db39ba375f0
    end
 elseif (ASTIfExpType=='elseif')
    if (IfExprField=='Else If Expression')
@@ -93,13 +105,18 @@ elseif (ASTIfExpType=='elseif')
 else
    error(9999, 'Unknown ASTIfExpType ""'+ASTIfExpType+'"".');
 end
+<<<<<<< HEAD
 NOp=0;
 Op=[];
+=======
+
+>>>>>>> 9e5793a7b05b23e6044a6d7a9ddd5db39ba375f0
 while (flagendpop == 0)
    if (IfExprField~='<EOL>')   
       if (ASTIfExpType=='if')
          if (IfExprField=='Expression:')
             flagendpop = 1;
+<<<<<<< HEAD
             //PrintStringInfo('hello dere  '+IfExprField,ReportFileName,'file','y');
             // Pop Again the If tag from the AST.
             IfExprField = AST_PopASTStack();
@@ -116,10 +133,18 @@ while (flagendpop == 0)
 	    IfCondArg(NIfCondArg) = IfExprField;
 	    end
             //[IfCondArg(NIfCondArg),tmpscope] = AST_ExtractNameAndScope(IfExprField);
+=======
+            // Pop Again the If tag from the AST.
+            IfExprField = AST_PopASTStack();
+         else
+            NIfCondArg = NIfCondArg + 1;
+            [IfCondArg(NIfCondArg),tmpscope] = AST_ExtractNameAndScope(IfExprField);
+>>>>>>> 9e5793a7b05b23e6044a6d7a9ddd5db39ba375f0
          end
       elseif (ASTIfExpType=='elseif')
          if (IfExprField=='Else If Expression')
             flagendpop = 1;
+<<<<<<< HEAD
 	    //IfExprField = AST_PopASTStack();
          else
 	    if (IfExprField=='&&' | IfExprField=='||')
@@ -144,6 +169,18 @@ end
 
 IfCondArg = SCI2Cflipud(IfCondArg);
 
+=======
+         else
+            NIfCondArg = NIfCondArg + 1;
+            IfCondArg(NIfCondArg) = IfExprField;
+            [IfCondArg(NIfCondArg),tmpscope] = AST_ExtractNameAndScope(IfExprField);
+         end
+      end
+   end
+   IfExprField = AST_PopASTStack();
+end
+
+>>>>>>> 9e5793a7b05b23e6044a6d7a9ddd5db39ba375f0
 //#RNU_RES_B
 // -------------------------------------------
 // --- Print some info in the report file. ---
