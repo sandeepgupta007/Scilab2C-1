@@ -41,6 +41,7 @@ void dhessa(double *in1,int size,int nout,double *out1, double *out2){
 	memcpy(A,in1,size*size*sizeof(double));
 	TAU = (double *)malloc((double)size*sizeof(double));
 	WORK = (double *)malloc((double)LWORK*sizeof(double));
+	/*Calling lapack subroutine */	
 	dgehrd_(&N,&ILO,&IHI,A,&LDA,TAU,WORK,&N,&INFO);
 		
 	for(i=0;i<N;i++)		/* copying it in output */
