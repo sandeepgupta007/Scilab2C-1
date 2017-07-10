@@ -160,6 +160,24 @@ extern "C" {
 /* interfacing fix */
 #include "fix.h"
 #include "int_fix.h"
+/*interfacing isrow*/
+#include "isrow.h"
+#include "int_isrow.h"
+/*interfacing nthroot*/
+#include "nthroot.h"
+#include "int_nthroot.h"
+/*interfacing issquare*/
+#include "issquare.h"
+#include "int_issquare.h"
+/*interfacing isscalar*/
+#include "isscalar.h"
+#include "int_isscalar.h"
+/*interfacing iscolumn*/
+#include "iscolumn.h"
+#include "int_iscolumn.h"
+/*interfacing ismatrix*/
+#include "ismatrix.h"
+#include "int_ismatrix.h"
 /* interfacing floor */
 #include "floor.h"
 #include "int_floor.h"
@@ -430,6 +448,9 @@ extern "C" {
 /*interfacing cumsum*/
 #include "int_cumsum.h"
 #include "cumsum.h"
+/*interfacing matrix*/
+#include "int_matrix.h"
+#include "matrix.h"
 /*interfacing cumprod*/
 #include "int_cumprod.h"
 #include "cumprod.h"
